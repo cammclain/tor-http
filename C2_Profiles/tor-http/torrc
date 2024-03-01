@@ -1,0 +1,20 @@
+## Tor configuration file for HTTP C2 Profile
+
+# Define the location of the hidden service directory
+# This directory will store the private key and hostname file
+HiddenServiceDir /var/lib/tor/hidden_service/
+
+# Redirect all traffic coming to the hidden service to the local port 9943
+# This is where your HTTP listener will be listening inside the container
+HiddenServicePort 80 127.0.0.1:9943
+
+# Optional configurations:
+# Increase logging for debugging (comment out in production)
+# Log notice file /var/log/tor/notices.log
+# Log debug file /var/log/tor/debug.log
+
+# It is important to restrict access to the Tor configuration and hidden service directory
+# Ensure that only the Tor process and users with a need to know have access to these files
+
+# Depending on your operational needs, you might want to fine-tune additional Tor settings
+# For example, setting bandwidth limits, configuring entry/exit nodes, etc.
